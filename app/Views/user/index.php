@@ -4,18 +4,18 @@
 <div class="max-w-4xl mx-auto p-4 bg-white rounded-lg shadow-md mt-8">
     <h1 class="text-2xl font-bold text-center mb-6 text-gray-700">User</h1>
 
-    <div class="flex justify-between mb-4">
+    <div class="flex flex-col md:flex-row justify-between mb-4">
         <form method="get" action="<?= base_url('users/search') ?>" class="flex w-full">
             <input 
-                class="flex-grow p-2 text-md border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                class="flex-grow p-2 text-sm md:text-md border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                 type="text" name="search" placeholder="Looking for someone? Search by name or ID...">
             <button 
-                class="bg-blue-500 text-white text-md p-2 rounded-r-md hover:bg-blue-600 transition duration-200"
+                class="bg-blue-500 text-sm md:text-md text-white p-2 rounded-r-md hover:bg-blue-600 transition duration-200"
                 type="submit">Search</button>
         </form>
         <a href="<?= base_url('users/create') ?>" 
-            class="ml-4 bg-green-500 text-white text-md px-4 py-2 rounded hover:bg-green-600 transition duration-200">
-            Add
+            class="mt-4 md:mt-0 md:ml-4 bg-green-500 text-sm md:text-md text-center text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200">
+            Add User
         </a>
     </div>
 
@@ -31,7 +31,7 @@
                 <tr>
                     <th class="px-4 py-2 border-b text-left text-sm font-medium text-gray-700">No</th>
                     <th class="px-4 py-2 border-b text-left text-sm font-medium text-gray-700">Name</th>
-                    <th class="px-4 py-2 border-b text-left text-sm font-medium text-gray-700">Email</th>
+                    <th class="hidden md:table-cell px-4 py-2 border-b text-left text-sm font-medium text-gray-700">Email</th>
                     <th class="px-4 py-2 border-b text-left text-sm font-medium text-gray-700">Actions</th>
                 </tr>
             </thead>
@@ -47,9 +47,8 @@
                     <?php foreach($users as $user): ?>
                     <tr class="hover:bg-gray-50 transition duration-150">
                         <td class="px-4 py-2 border-b text-sm text-gray-700"><?= $i++ ?></td>
-                        <td class="px-4 py-2 border-b text-sm text-gray-700" hidden><?= $user['users_id'] ?></td>
                         <td class="px-4 py-2 border-b text-sm text-gray-700"><?= $user['users_name'] ?></td>
-                        <td class="px-4 py-2 border-b text-sm text-gray-700"><?= $user['users_email'] ?></td>
+                        <td class="hidden md:table-cell px-4 py-2 border-b text-sm text-gray-700"><?= $user['users_email'] ?></td>
                         <td class="px-4 py-2 border-b text-sm text-gray-700">
                             <a href="<?= base_url('users/edit/'.$user['users_id']) ?>" 
                                 class="text-blue-500 hover:underline">Edit</a>
@@ -62,7 +61,6 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
-
         </table>
     </div>
 
