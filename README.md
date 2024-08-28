@@ -1,60 +1,83 @@
-# CodeIgniter 4 Framework
 
-## What is CodeIgniter?
+# Angsana Asmara Fullstack Developer Test
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Prerequisites
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+Sebelum memulai, pastikan Anda telah menginstal hal berikut:
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- [PHP](https://www.php.net/manual/en/install.php) (versi 7.3 atau lebih tinggi)
+- [Composer](https://getcomposer.org/download/)
+- [Node.js](https://nodejs.org/) (versi 14 atau lebih tinggi)
+- [npm](https://www.npmjs.com/get-npm) (biasanya sudah terpasang dengan Node.js)
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## Instalasi
 
-## Important Change with index.php
+Ikuti langkah-langkah berikut untuk menginstal proyek ini di sistem Anda:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+1. **Clone repositori:**
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+   ```bash
+   git clone https://github.com/gabrielsumampow/angsana-fullstack-test.git
+   ```
 
-**Please** read the user guide for a better explanation of how CI4 works!
+2. **Masuk ke direktori proyek:**
 
-## Repository Management
+   ```bash
+   cd angsana-fullstack-test
+   ```
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+3. **Instal dependensi PHP:**
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+   ```bash
+   composer install
+   ```
 
-## Contributing
+4. **Instal dependensi Node.js:**
 
-We welcome contributions from the community.
+   ```bash
+   npm install
+   ```
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+5. **Instal Tailwind CSS:**
 
-## Server Requirements
+   Jika Anda menggunakan Tailwind CSS, jalankan perintah berikut untuk menginstal Tailwind:
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+   ```bash
+   npm install tailwindcss
+   ```
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+## Konfigurasi Tailwind CSS
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+Setelah menginstal Tailwind CSS, Anda perlu membuat file konfigurasi Tailwind dengan menjalankan:
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+```bash
+npx tailwindcss init
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Kemudian, tambahkan konfigurasi Tailwind ke file CSS Anda, misalnya `styles.css`:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## Menjalankan Tailwind CSS
+
+Untuk memproses file Tailwind CSS, jalankan perintah berikut di terminal:
+
+```bash
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+```
+
+Ganti `./src/input.css` dan `./dist/output.css` dengan jalur file input dan output yang sesuai.
+
+## Menjalankan Proyek
+
+Setelah semua langkah di atas selesai, Anda bisa menjalankan server lokal CodeIgniter dengan perintah:
+
+```bash
+php spark serve
+```
+
+Akses aplikasi Anda di browser dengan membuka `http://localhost:8080`.
