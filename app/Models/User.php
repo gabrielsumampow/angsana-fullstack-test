@@ -10,7 +10,7 @@ class User extends Model
     protected $primaryKey       = 'users_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = true;
+    protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['users_name', 'users_email'];
 
